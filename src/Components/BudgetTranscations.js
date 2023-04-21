@@ -23,7 +23,7 @@ function BudgetTransactions() {
   };
 
   let totalColor = "";
-  if (totalAmount() < 100) {
+  if (totalAmount() > 100) {
     totalColor = "text-success";
   } else if (totalAmount() >= 0) {
     totalColor = "text-warning";
