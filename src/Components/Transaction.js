@@ -1,22 +1,23 @@
 import { Link } from "react-router-dom";
 
 function Transaction({ transaction, index }) {
+  const date = new Date(transaction.date);
+  const year = date.getFullYear();
+  const month = date.toLocaleString('default', { month: 'short' });
+  const day = date.getDate();
+
+  const dateFormat = `${month} ${day}, ${year}`;
+
   return (
     <tr>
       <td>
-        {transaction.isFavorite ? (
-          <span>⭐️</span>
-        ) : (
-          <span>&nbsp; &nbsp; &nbsp;</span>
-        )}
+        {dateFormat}
       </td>
       <td>
-        <a href={transaction.url} target="_blank" rel="noreferrer">
-          {transaction.name}
-        </a>
+        <Link to={`/transactions/${index}`}>{transaction.itemName}</Link> 
       </td>
       <td>
-        <Link to={`/transactions/${index}`}>✏️</Link>
+        <h5>{transaction.amount}</h5>
       </td>
     </tr>
   );

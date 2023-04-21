@@ -1,39 +1,45 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import Transaction from "./Transaction";
 import axios from "axios";
 
-import Transaction from "./Transaction";
-
 const API = process.env.REACT_APP_API_URL;
-//console.log(API, "Testing api");
+console.log(API, "Testing api");
 
 function BudgetTransactions() {
-  const { id } = useParams();
-  const navigate = useNavigate();
   const [transactions, setTransactions] = useState([]);
-
   useEffect(() => {
     axios
-    .get(`${API}/transactions`)
-    .then((response) => setTransactions(response.data))
-    .catch((e) => console.error("catch", e))
+      .get(`${API}/transactions`)
+      .then((response) => setTransactions(response.data))
+      .catch((e) => console.error(e));
   }, []);
 
-
+  const totalAmount = () => {
+    let total = 0;
+    transactions.map((transaction) => {
+    return total += Number(transaction.amount);
+    });
+    return total;
+  };
   return (
     <div className="Transactions">
+      <h3>Bank Account Total: {totalAmount()} </h3>
       <section>
-        <table>
+        <table className="table table-striped table-hover text-center">
           <thead>
             <tr>
               <th></th>
-              <th>Take me there</th>
-              <th>See this transaction!</th>
             </tr>
           </thead>
           <tbody>
-            {transactions.map((transactions, index) => {
-              return <Transaction key={index} transaction={transactions} index={index} />;
+            {transactions.map((transaction, index) => {
+              return (
+                <Transaction
+                  key={index}
+                  transaction={transaction}
+                  index={index}
+                />
+              );
             })}
           </tbody>
         </table>

@@ -1,0 +1,18 @@
+.navbar {
+  background-color: lightblue;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.app-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.new-transaction {
+  margin-right: 20px;
+}
