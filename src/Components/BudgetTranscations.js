@@ -17,13 +17,23 @@ function BudgetTransactions() {
   const totalAmount = () => {
     let total = 0;
     transactions.map((transaction) => {
-    return total += Number(transaction.amount);
+      return total += Number(transaction.amount);
     });
     return total;
   };
+
+  let totalColor = "";
+  if (totalAmount() < 100) {
+    totalColor = "text-success";
+  } else if (totalAmount() >= 0) {
+    totalColor = "text-warning";
+  } else {
+    totalColor = "text-danger";
+  }
+
   return (
     <div className="Transactions">
-      <h3>Bank Account Total: {totalAmount()} </h3>
+      <h3 className={totalColor}>Bank Account Total: {totalAmount()} </h3>
       <section>
         <table className="table table-striped table-hover text-center">
           <thead>

@@ -14,7 +14,7 @@ function Transaction({ transaction, index }) {
         {dateFormat}
       </td>
       <td>
-        <Link to={`/transactions/${index}`}>{transaction.itemName}</Link> 
+        <Link to={`/transactions/${index}`}>{transaction.itemName}</Link>
       </td>
       <td>
         <h5>{transaction.amount}</h5>

@@ -19,68 +19,68 @@ function BudgetDetails() {
         navigate("/not-found")
       })
   }, [index, navigate]);
-  
+
   const handleDelete = () => {
     axios
       .delete(`${API}/transactions/${index}`)
       .then(() => {
         navigate(`/transactions`)
       })
-    .catch((e) => console.error(e))
-   };
-  
+      .catch((e) => console.error(e))
+  };
+
   return (
     <article className="container container-fluid text-center">
-  <table>
-    <tbody>
-      <tr>
-        <th>Date:</th>
-        <td>{transaction.date}</td>
-      </tr>
-      <tr>
-        <th>Name:</th>
-        <td>{transaction.itemName}</td>
-      </tr>
-      <tr>
-        <th>Amount:</th>
-        <td>
-          {transaction.amount}
-          <br />
-        </td>
-      </tr>
-      <tr>
-        <th>From:</th>
-        <td>{transaction.from}</td>
-      </tr>
-      <tr>
-        <th>Category:</th>
-        <td>{transaction.category}</td>
-      </tr>
-      <tr>
-        <th>Id:</th>
-        <td>{transaction.id}</td>
-      </tr>
-    </tbody>
-  </table>
-  <div className="row">
-    <div>
-      <Link to={`/transactions`}>
-        <button className="back-button">Back</button>
-      </Link>
-    </div>
-    <div>
-      <Link className="edit-button" to={`/transactions/${index}/edit`}>
-        <button className="edit-button-title">Edit</button>
-      </Link>
-    </div>
-    <div>
-      <button className="delete " onClick={handleDelete}>
-        Delete
-      </button>
-    </div>
-  </div>
-</article>
- );
+      <table>
+        <tbody>
+          <tr>
+            <th>Date:</th>
+            <td>{transaction.date}</td>
+          </tr>
+          <tr>
+            <th>Name:</th>
+            <td>{transaction.itemName}</td>
+          </tr>
+          <tr>
+            <th>Amount:</th>
+            <td>
+              {transaction.amount}
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <th>From:</th>
+            <td>{transaction.from}</td>
+          </tr>
+          <tr>
+            <th>Category:</th>
+            <td>{transaction.category}</td>
+          </tr>
+          <tr>
+            <th>Id:</th>
+            <td>{transaction.id}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div className="row">
+        <div>
+          <Link to={`/transactions`}>
+            <button className="back-button">Back</button>
+          </Link>
+        </div>
+        <div>
+          <Link className="edit-button" to={`/transactions/${index}/edit`}>
+            <button className="edit-button-title">Edit</button>
+          </Link>
+        </div>
+        <div>
+          <button className="delete " onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
+      </div>
+    </article>
+  );
 }
 
 export default BudgetDetails;

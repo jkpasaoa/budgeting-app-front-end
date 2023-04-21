@@ -5,9 +5,9 @@ function NavBar() {
   return (
     <nav className="navbar">
       <div className="app-name">
-      <h1>
-        <Link to="/transactions">Budgeting App</Link>
-      </h1>
+        <h1>
+          <Link to="/transactions">Budgeting App</Link>
+        </h1>
       </div>
       <button className="new-transaction">
         <Link to="/transactions/new">New Transaction</Link>

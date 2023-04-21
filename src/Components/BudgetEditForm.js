@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+
 const API = process.env.REACT_APP_API_URL;
 
 function BudgetEditForm() {
@@ -8,29 +9,28 @@ function BudgetEditForm() {
   let { index } = useParams();
 
   const [transaction, setTransaction] = useState({
-    name: "",
-    url: "",
+    date: "",
+    itemName: "",
+    amount: 0,
+    from: "",
     category: "",
-    description: "",
-    isFavorite: false,
   });
 
   const handleTextChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
-  const handleCheckboxChange = () => {
-    setTransaction({ ...transaction, isFavorite: !transaction.isFavorite });
+  const handleCheckboxChange = (event) => {
+    setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
-//populate the edit form with data from the data base
-  // after the user edits, make a put request
+ 
   useEffect(() => {
     axios
       .get(`${API}/transactions/${index}`)
       .then((response) => {
         setTransaction(response.data)
       })
-        .catch((e) => console.error(e))
+      .catch((e) => console.error(e))
 
   }, [index]);
 
@@ -46,12 +46,11 @@ function BudgetEditForm() {
       .catch((e) => console.warn("warn", e));
   }
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     updateTransaction();
   };
-  
+
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit}>
