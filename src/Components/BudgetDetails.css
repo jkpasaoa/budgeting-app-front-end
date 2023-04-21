@@ -1,0 +1,19 @@
+article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.back-button,
+.edit-button,
+.delete {
+  margin-top: 10px;
+}
+

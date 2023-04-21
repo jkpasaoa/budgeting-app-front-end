@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import "./BudgetDetails.css"
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -29,44 +30,57 @@ function BudgetDetails() {
    };
   
   return (
-    <article>
-      <h3>
-        {transaction.isFavorite ? <span>⭐️</span> : null} {transaction.name}
-      </h3>
-      {/* <h5>
-        <span> */}
-          {/* <a href={transaction.url}>{transaction.name}</a> */}
-        {/* </span>{" "}
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        {transaction.url}
-      </h5> */}
-      <h3 textalign="left">Id:</h3>
-      <h3>{transaction.id}</h3>
-      <h3>{transaction.item_name}</h3>
-      <h3>{transaction.amount}</h3>
-      <h3>{transaction.date}</h3>
-      <h3>{transaction.from}</h3>
-      <h3>{transaction.category}</h3>
-      <div className="showNavigation">
-        <div>
-          {" "}
-          <Link to={`/transactions`}>
-            <button>Back</button>
-          </Link>
-        </div>
-        <div>
-          {" "}
-          <Link to={`/transactions/${index}/edit`}>
-            <button>Edit</button>
-          </Link>
-        </div>
-        <div>
-          {" "}
-          <button onClick={handleDelete}>Delete</button>
-        </div>
-      </div>
-    </article>
-  );
+    <article className="container container-fluid text-center">
+  <table>
+    <tbody>
+      <tr>
+        <th>Date:</th>
+        <td>{transaction.date}</td>
+      </tr>
+      <tr>
+        <th>Name:</th>
+        <td>{transaction.itemName}</td>
+      </tr>
+      <tr>
+        <th>Amount:</th>
+        <td>
+          {transaction.amount}
+          <br />
+        </td>
+      </tr>
+      <tr>
+        <th>From:</th>
+        <td>{transaction.from}</td>
+      </tr>
+      <tr>
+        <th>Category:</th>
+        <td>{transaction.category}</td>
+      </tr>
+      <tr>
+        <th>Id:</th>
+        <td>{transaction.id}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div className="row">
+    <div>
+      <Link to={`/transactions`}>
+        <button className="back-button">Back</button>
+      </Link>
+    </div>
+    <div>
+      <Link className="edit-button" to={`/transactions/${index}/edit`}>
+        <button className="edit-button-title">Edit</button>
+      </Link>
+    </div>
+    <div>
+      <button className="delete " onClick={handleDelete}>
+        Delete
+      </button>
+    </div>
+  </div>
+</article>
+ );
 }
 
 export default BudgetDetails;
