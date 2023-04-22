@@ -84,7 +84,7 @@ function BudgetNewForm() {
         <input
           className="form-control"
           id="amount"
-          // type="number"
+          type="number"
           name="amount"
           value={transaction.amount}
           placeholder="amount"
