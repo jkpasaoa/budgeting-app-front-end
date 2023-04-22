@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+
 import "./BudgetDetails.css"
 
 const API = process.env.REACT_APP_API_URL;
@@ -60,25 +61,31 @@ function BudgetDetails() {
             <th>Id:</th>
             <td>{transaction.id}</td>
           </tr>
+          <tr>
+            <td colSpan="2">
+              <div className="button-container">
+                <div>
+                  <Link to={`/transactions`}>
+                    <button className="back-button">Back</button>
+                  </Link>
+                </div>
+                <br />
+                <div>
+                  <Link className="edit-button" to={`/transactions/${index}/edit`}>
+                    <button className="edit-button-title">Edit</button>
+                  </Link>
+                </div>
+                <br />
+                <div>
+                  <button className="delete" onClick={handleDelete}>
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
-      <div className="row">
-        <div>
-          <Link to={`/transactions`}>
-            <button className="back-button">Back</button>
-          </Link>
-        </div>
-        <div>
-          <Link className="edit-button" to={`/transactions/${index}/edit`}>
-            <button className="edit-button-title">Edit</button>
-          </Link>
-        </div>
-        <div>
-          <button className="delete " onClick={handleDelete}>
-            Delete
-          </button>
-        </div>
-      </div>
     </article>
   );
 }

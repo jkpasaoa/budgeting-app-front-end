@@ -4,15 +4,9 @@ article {
   align-items: center;
 }
 
-.row {
+.button-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
-}
-
-.back-button,
-.edit-button,
-.delete {
-  margin-top: 10px;
+  margin-top: 1rem;
 }
