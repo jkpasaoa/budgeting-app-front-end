@@ -2,17 +2,27 @@
 
 The Budgeting App is a web application that allows users to log in and manage their financial information. Users can create a budget list and log their financial transactions, such as wages, gifts, phone bills, gas expenses, and other expenses or income. The app calculates the bank account total based on the logged items.
 
+***
+
 The view of the items, user has/can list.
 ![Transaction Index!](https://raw.githubusercontent.com/jkpasaoa/images/main/Budgeting-App-Index.png "Transaction Index")
+
+***
 
 After clicking the item, you can view the details of that transaction.
 ![Transaction Details!](https://raw.githubusercontent.com/jkpasaoa/images/main/Budgeting-App-Details.png "Transaction Details")
 
+***
+
 After clicking the edit button on the transaction details page, it leads the user to the edit transaction page and has to fill in the fields to submit.
 ![Edit Transaction!](https://raw.githubusercontent.com/jkpasaoa/images/main/Budgeting-App-Edit.png "Edit Transaction")
 
+***
+
 Once you click in the navigation bar, "New Transaction", the user can log in the fields of Date, Name, Amount, From, and Category and submit the item into the original budget list.
 ![Add New Transaction!](https://raw.githubusercontent.com/jkpasaoa/images/main/Budgeting-App-Add-New-Transaction.png "New Transaction")
+
+***
 
 The application is built using JavaScript, HTML, CSS, React, Bootstrap, and Express.
 
