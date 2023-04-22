@@ -20,10 +20,14 @@ function BudgetEditForm() {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
-  const handleCheckboxChange = (event) => {
+  const handleNumberChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
- 
+
+  const handleSelectChange = (event) => {
+    setTransaction({ ...transaction, [event.target.id]: event.target.value });
+  };
+
   useEffect(() => {
     axios
       .get(`${API}/transactions/${index}`)
@@ -43,7 +47,7 @@ function BudgetEditForm() {
         navigate(`/transactions/${index}`)
       }
       )
-      .catch((e) => console.warn("warn", e));
+      .catch((e) => console.error(e));
   }
 
   const handleSubmit = (event) => {
@@ -54,55 +58,63 @@ function BudgetEditForm() {
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="date">Date:</label>
         <input
-          id="name"
-          value={transaction.name}
+          className="form-control"
+          id="date"
+          value={transaction.date}
           type="text"
           onChange={handleTextChange}
-          placeholder="Name of Website"
+          placeholder="date"
           required
-        />
-        <label htmlFor="url">URL:</label>
-        <input
-          id="url"
-          type="text"
-          pattern="http[s]*://.+"
-          required
-          value={transaction.url}
-          placeholder="http://"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="category">Category:</label>
-        <input
-          id="category"
-          type="text"
-          name="category"
-          value={transaction.category}
-          placeholder="educational, inspirational, ..."
-          onChange={handleTextChange}
-        />
-        <label htmlFor="isFavorite">Favorite:</label>
-        <input
-          id="isFavorite"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={transaction.isFavorite}
-        />
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          name="description"
-          value={transaction.description}
-          onChange={handleTextChange}
-          placeholder="Describe why you bookmarked this site"
         />
         <br />
-
-        <input type="submit" />
+        <label htmlFor="itemName" className="form-label">Name:</label>
+        <input
+          className="form-control"
+          id="itemName"
+          type="text"
+          value={transaction.itemName}
+          onChange={handleTextChange}
+          placeholder="Name"
+          required
+        />
+        <br />
+        <label className="form-label" htmlFor="amount">
+          Amount:
+        </label>
+        <input
+          className="form-control"
+          id="amount"
+          type="number"
+          value={transaction.amount}
+          onChange={handleNumberChange}
+          required
+        />
+        <br />
+        <label htmlFor="form-label">Category:</label>
+        <select
+          className="form-select"
+          id="category"
+          type="text"
+          checked={transaction.category}
+          onChange={handleSelectChange}
+        >
+          <option value="income">Income</option>
+          <option value="gift">Gift</option>
+          <option value="food">Food</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="medical">Medical</option>
+          <option value="bill">Bill</option>
+          <option value="groceries">Groceries</option>
+          <option value="transportation-related">Transportation-related</option>
+        </select>
+        <br />
+        <input className="btn btn-primary" type="submit" />
       </form>
       <Link to={`/transactions/${index}`}>
-        <button>Nevermind!</button>
+        <br />
+        <button className="btn btn-secondary">Nevermind!</button>
       </Link>
     </div>
   );
