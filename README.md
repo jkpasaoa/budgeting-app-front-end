@@ -4,7 +4,7 @@ The Budgeting App is a web application that allows users to log in and manage th
 
 Deployed Back-end: https://budgeting-app-back-end.onrender.com/
 
-Deployed Front-end: In-Progress
+Deployed Front-end: https://jkpasaoa-budgetingapp-fe.netlify.app/
 
 ***
 
