@@ -2,6 +2,9 @@
 
 The Budgeting App is a web application that allows users to log in and manage their financial information. Users can create a budget list and log their financial transactions, such as wages, gifts, phone bills, gas expenses, and other expenses or income. The app calculates the bank account total based on the logged items.
 
+Deployed Back-end: https://budgeting-app-back-end.onrender.com/
+Deployed Front-end: In-Progress
+
 ***
 
 The view of the items, user has/can list.
