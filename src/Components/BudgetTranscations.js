@@ -3,7 +3,7 @@ import Transaction from "./Transaction";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
-console.log(API, "Testing api");
+//console.log(API, "Testing api");
 
 function BudgetTransactions() {
   const [transactions, setTransactions] = useState([]);
